@@ -1,59 +1,85 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
 from typing import Any
+from datetime import datetime
+
+
+@dataclass
+class Owner:
+	name: str
+	available_hours: list[Any] = field(default_factory=list)
+	energy_level: int = 0
+	owned_pets: list[Pet] = field(default_factory=list)
+
+	def add_pet(self, pet_details: Pet) -> None:
+		pass
+
+	def update_availability(self, times: Any) -> None:
+		pass
+
+	def get_preferences(self) -> str:
+		pass
 
 
 @dataclass
 class Pet:
-	species_profile: str
-	energy_requirement: float
-	medical_records: list[str] = field(default_factory=list)
-	dietary_schedule: list[str] = field(default_factory=list)
+	name: str
+	species: str
+	age: int
+	health_status: str
+	owner: Owner | None = None
+	requirements: dict[str, Any] = field(default_factory=dict)
 
-	def calculate_daily_targets(self) -> None:
+	def get_needs(self) -> dict[str, Any]:
 		pass
 
-	def update_health_status(self) -> None:
-		pass
-
-
-@dataclass
-class CareTask:
-	task_type: str
-	priority_weight: int
-	estimated_duration: timedelta
-	dependencies: list[str] = field(default_factory=list)
-
-	def get_urgency_score(self) -> None:
-		pass
-
-	def toggle_completion(self) -> None:
+	def update_health_record(self, note: str) -> None:
 		pass
 
 
 @dataclass
-class OwnerConstraint:
-	availability_calendar: Any
-	energy_capacity: str
-	preference_bias: list[str] = field(default_factory=list)
+class Task:
+	task_id: str
+	category: str
+	priority: int
+	estimated_duration: int
+	pet: Pet | None = None
+	owner: Owner | None = None
+	is_completed: bool = False
+	completed_date: datetime | None = None
+	skip_count: int = 0
+	scheduled_start: datetime | None = None
+	scheduled_end: datetime | None = None
+	dependency: Task | None = None
 
-	def fetch_free_windows(self) -> None:
+	def mark_complete(self) -> None:
 		pass
 
-	def check_feasibility(self, task_duration: timedelta) -> None:
+	def get_priority_score(self) -> int:
 		pass
 
 
 @dataclass
-class DailyPlan:
-	scheduled_tasks: list[CareTask] = field(default_factory=list)
-	buffer_time: timedelta = field(default_factory=timedelta)
-	logic_log: list[str] = field(default_factory=list)
+class ScheduleResult:
+	success: bool
+	scheduled_tasks: list[Task] = field(default_factory=list)
+	conflicts: list[str] = field(default_factory=list)
+	message: str = ""
 
-	def generate_itinerary(self) -> None:
+
+@dataclass
+class Scheduler:
+	owner: Owner
+	daily_queue: list[Task] = field(default_factory=list)
+	total_time_budget: int = 0
+	generated_plan: dict[str, Any] = field(default_factory=dict)
+
+	def optimize_schedule(self, pet_list: list[Pet]) -> ScheduleResult:
 		pass
 
-	def regenerate_on_interrupt(self) -> None:
+	def explain_logic(self) -> str:
+		pass
+
+	def export_to_streamlit(self) -> dict[str, Any]:
 		pass
