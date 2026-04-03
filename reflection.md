@@ -14,7 +14,7 @@ My UML design consists of Owner, Pet, Scheduler, and Task. The Owner class is re
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
-
+My design did change during implementation. One change I made was concrete time slots and adding tracking for completions and skips. The reason why I had made this change was to provide the user the necessary data for the sorting of tasks. Another change I made was introducing a ScheduleResult dataclass to report conflicts and localizing the Scheduler logic to specific owners. This was to increase the risk of a poorly made feedback loop. 
 
 ---
 
