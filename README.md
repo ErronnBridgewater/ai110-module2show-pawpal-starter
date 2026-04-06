@@ -55,3 +55,11 @@ The filter_tasks method isolates tasks based on their completion status or speci
 The sort_by_time feature organizes the daily queue by their scheduled start times and handles unscheduled tasks by placing them at the end of the list, so the owner sees immediate priorities first.
 
 The _get_task_window helper logic determines the effective duration of a task. It can derive an end time using the estimated_duration if a specific scheduled_end isn't provided. 
+
+#### Testing PawPal+ 
+python -m pytest
+Confidence Level: 4 
+The tests cover the following: 
+- Ensures that tasks are correctly sorted by their scheduled_start time in ascending order.
+- Confirms that when a daily task is marked complete, a new task is automatically created for the next day with appropriately shifted start and end times, and added back into the scheduler queue.
+- Verifies that tasks scheduled at the same time are identified as conflicts, and that the system returns a clear message including the conflicting task IDs.
