@@ -44,14 +44,14 @@ pip install -r requirements.txt
 
 ### Smarter Scheduling 
 
-The _build_next_occurrence method handles the lifecycle of recurring tasks. It automatically calculates new start and end times for "daily" or "weekly" categories and genereates a new Task instance to keep the pet care routine consistent.
+The _build_next_occurrence method handles the lifecycle of recurring tasks. It automatically calculates new start and end times for "daily" or "weekly" categories and generates a new Task instance to keep the pet care routine consistent.
 
-The detect_time_conflicts engine identifies overlapping schedules. It compares task time windows to find conflictsand categorizes them based on whether they involve the same pet or different pets.
+The detect_time_conflicts engine identifies overlapping schedules. It compares task time windows to find conflicts and categorizes them based on whether they involve the same pet or different pets.
 
 The detect_time_conflicts_lightweight method prevents the entire application from crashing if a task has missing or corrupted data, returning a helpful warning message instead.
 
 The filter_tasks method isolates tasks based on their completion status or specific pet names.
 
- The sort_by_time feature organizes the daily queue by their scheduled start times. handles unscheduled tasks by placing them at the end of the list, so the owner sees immediate priorities first.
+The sort_by_time feature organizes the daily queue by their scheduled start times and handles unscheduled tasks by placing them at the end of the list, so the owner sees immediate priorities first.
 
-he _get_task_window helper logic determines the effective duration of a task. It can derive an end time using the estimated_duration if a specific scheduled_end isn't provided. 
+The _get_task_window helper logic determines the effective duration of a task. It can derive an end time using the estimated_duration if a specific scheduled_end isn't provided. 
