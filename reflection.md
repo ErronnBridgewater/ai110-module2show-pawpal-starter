@@ -7,14 +7,14 @@
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
-My UML design consists of Owner, Pet, Scheduler, and Task. The Owner class is responsible for defining the boundaries of the schedule. The Pet Class is responsible for setting the current state of the animal (age, weight, energy levels), converting needs into data and logging what has been done for specific pets in the past. The Task class is responsible for making sure a task has a duration and a category and Tracking whether it is "Pending," "InProgress," or "Completed." It also identifies how it essential it is in relation to other tasks. The Scheduler class sorts through tasks in a timeline and manages the risk of scheduling conflicts. 
+My UML design consists of Owner, Pet, Scheduler, and Task. The Owner class is responsible for defining the boundaries of the schedule. The Pet Class is responsible for setting the current state of the animal (age, weight, energy levels), converting needs into data and logging what has been done for specific pets in the past. The Task class is responsible for making sure a task has a duration and a category and racking whether it is "Pending," "InProgress," or "Completed." It also identifies how it essential it is in relation to other tasks. The Scheduler class sorts through tasks in a timeline and manages the risk of scheduling conflicts. 
 
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
 
-My design did change during implementation. One change I made was concrete time slots and adding tracking for completions and skips. The reason why I had made this change was to provide the user the necessary data for the sorting of tasks. Another change I made was introducing a ScheduleResult dataclass to report conflicts and localizing the Scheduler logic to specific owners. This was to increase the risk of a poorly made feedback loop. 
+My design did change during implementation. One change I made was concrete time slots and adding tracking for completions and skips. The reason why I had made this change was to provide the user the necessary data for the sorting of tasks. Another change I made was introducing a ScheduleResult dataclass to report conflicts and localizing the Scheduler logic to specific owners. This was to decrease the risk of a poorly made feedback loop. 
 
 ---
 
