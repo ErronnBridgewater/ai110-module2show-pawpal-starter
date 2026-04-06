@@ -1,4 +1,5 @@
 import streamlit as st
+from pawpal_system import Owner, Pet, Scheduler, Task
 
 st.set_page_config(page_title="PawPal+", page_icon="🐾", layout="centered")
 
@@ -57,7 +58,7 @@ with col2:
 with col3:
     priority = st.selectbox("Priority", ["low", "medium", "high"], index=2)
 
-if st.button("Add task"):
+if st.button("Mark Complete"):
     st.session_state.tasks.append(
         {"title": task_title, "duration_minutes": int(duration), "priority": priority}
     )
@@ -73,11 +74,25 @@ st.divider()
 st.subheader("Build Schedule")
 st.caption("This button should call your scheduling logic once you implement it.")
 
+if st.button("Get Needs"):
+    pet = Pet(
+        name=pet_name,
+        species=species,
+        age=0,
+        health_status="healthy"
+    )
+
+    st.session_state.owner.add_pet(pet)
+
+
 if st.button("Generate schedule"):
     st.warning(
         "Not implemented yet. Next step: create your scheduling logic (classes/functions) and call it here."
     )
     st.markdown(
+
+
+
         """
 Suggested approach:
 1. Design your UML (draft).

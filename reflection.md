@@ -30,6 +30,11 @@ My design did change during implementation. One change I made was concrete time 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
 
+One tradeoff that the Scheduler class makes is instead of exploring all possible task orderings (which would be computationally expensive), it sorts by time or urgeny to produce a schedule quickly.
+
+This tardeoff is reasonable for this scenario because pet care tasks don’t need a perfect schedule, just one that is understandable. A faster system is also better for users, since they get results right away. Any small issues can still be caught later by the conflict detection feature.
+
+
 ---
 
 ## 3. AI Collaboration
