@@ -155,5 +155,5 @@ The tests cover the following:
 - Verifies that tasks scheduled at the same time are identified as conflicts, and that the system returns a clear message including the conflicting task IDs.
 
 ### 📸 Demo
-<a href="/course_images/ai110/fianl_screenshot.png" target="_blank"><img src='/course_images/ai110 </a>
+<a href="/course_images/ai110/final_screenshot.png" target="_blank"><img src='/course_images/ai110/final_screenshot.png' alt="PawPal Final Screenshot" /></a>
 # I added the png file into the folder in case the embedded syntax does not work 
